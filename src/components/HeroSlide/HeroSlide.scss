@@ -1,0 +1,115 @@
+@use '../../scss/variabless' as *;
+
+.hero-slide {
+  position: relative;
+  &__item {
+    background: no-repeat center/cover;
+    padding: 150px 0px;
+    height: 100vh;
+    @media (max-width: 1023px) {
+      // min-height: 400px;
+      height: 400px;
+    }
+
+    @media (max-width: 424px) {
+      padding: 100px 0px;
+    }
+    &:before {
+      content: '';
+      width: 100%;
+      height: 100%;
+      background-color: rgba($color: #000000, $alpha: 0.6);
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    &:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100px;
+      background-image: linear-gradient(to top, $body-bg, rgba(#000, 0));
+    }
+  }
+}
+.item-hero {
+  &__content {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  &__info {
+    flex: 0 1 50%;
+    padding: 0px 50px;
+    @media (max-width: 1023px) {
+      flex: 0 1 100%;
+      padding: 0px 10px;
+    }
+  }
+  &__title {
+    font-size: 80px;
+    font-weight: 700;
+    line-height: 1;
+    margin: 0px 0px 50px 0px;
+    @media (max-width: 1023px) {
+      font-size: 55px;
+    }
+    @media (max-width: 767px) {
+      font-size: 45px;
+      margin: 0px 0px 30px 0px;
+    }
+    @media (max-width: 500px) {
+      font-size: 35px;
+    }
+  }
+  &__overview {
+    font-weight: 700;
+    @media (max-width: 500px) {
+      font-size: 14px;
+    }
+  }
+  &__btns {
+  }
+  &__poster {
+    transform: scale(0);
+    transition: transform 0.8s ease;
+    img {
+      max-width: 400px;
+      border-radius: 30px;
+      box-shadow: $box-shadow;
+    }
+    @media (max-width: 1023px) {
+      display: none;
+    }
+  }
+  &__title,
+  &__overview,
+  &__btns {
+    opacity: 0;
+    transform: translateY(-100px);
+    transition: transform 0.5s ease, opacity 0.5s ease;
+  }
+}
+
+.swiper-slide-active {
+  .item-hero__title,
+  .item-hero__overview,
+  .item-hero__btns {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .item-hero__poster {
+    transform: scale(1);
+  }
+  .item-hero__title {
+    transition-delay: 0.3s, 0.3s;
+  }
+  .item-hero__overview {
+    transition-delay: 0.6s, 0.6s;
+  }
+  .item-hero__btns {
+    transition-delay: 0.9s, 0.9s;
+  }
+}
