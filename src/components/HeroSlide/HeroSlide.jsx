@@ -1,18 +1,20 @@
 import './HeroSlide.scss'
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Autoplay } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
 import axios from '../../services/apiService'
+import Button, { OutlineButton } from '../Button/Button'
 
 const HeroSlide = () => {
   const [movies, setMovies] = useState([])
 
   useEffect(() => {
     const getMovies = async () => {
+      const params = { page: 1 }
       try {
-        const res = await axios.get('movie/popular')
-        setMovies(res.data.results.slice(0, 4))
+        const res = await axios.get('movie/popular', { params })
+        setMovies(res.results.slice(0, 4))
       } catch (error) {
         console.log('error')
       }
@@ -48,7 +50,10 @@ const HeroSlideItem = ({ movie }) => {
         <div className='item-hero__info'>
           <h2 className='item-hero__title'>{movie.title}</h2>
           <p className='item-hero__overview'>{movie.overview}</p>
-          <div className='item-hero__btns'></div>
+          <div className='item-hero__btns'>
+            <Button>Watch now</Button>
+            <OutlineButton>Watch trailer</OutlineButton>
+          </div>
         </div>
         <div className='item-hero__poster'>
           <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt='' />

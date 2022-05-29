@@ -10,6 +10,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/:category' element={<Catalog />} />
+        {/* <Route path='/:category/:id' element={<Detail />} /> */}
       </Routes>
     </div>
   )

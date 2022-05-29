@@ -1,0 +1,53 @@
+@use '../../scss/variabless' as *;
+
+.movie-card {
+  &__image {
+    padding-top: 160%;
+    margin: 0px 0px 10px 0px;
+    background: no-repeat center/cover;
+    border-radius: $border_radius;
+    position: relative;
+    &:before {
+      content: '';
+      width: 100%;
+      height: 100%;
+      background-color: #000;
+      opacity: 0;
+      position: absolute;
+      top: 0;
+      left: 0;
+      border-radius: $border_radius;
+      transition: opacity 0.3s ease;
+    }
+    &:hover {
+      &:before {
+        opacity: 0.7;
+      }
+      .btn {
+        transform: translate(-50%, -50%) scale(1);
+      }
+    }
+    .btn {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%) scale(0);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+  }
+  &__title {
+    transition: color 0.3s ease;
+  }
+  &:hover {
+    .movie-card__title {
+      color: $main-color;
+    }
+  }
+}
+.play {
+  margin: 3px 0px;
+  display: block;
+  border-style: solid;
+  border-width: 8px 0 8px 15px;
+  border-color: transparent transparent transparent #ffffff;
+}
