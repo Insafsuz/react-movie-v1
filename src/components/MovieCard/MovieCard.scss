@@ -37,6 +37,12 @@
   }
   &__title {
     transition: color 0.3s ease;
+    @media (max-width: 767px) {
+      font-size: 16px;
+    }
+    @media (max-width: 424px) {
+      font-size: 14px;
+    }
   }
   &:hover {
     .movie-card__title {

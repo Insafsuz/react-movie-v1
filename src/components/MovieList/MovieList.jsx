@@ -21,7 +21,7 @@ const MovieList = ({ category, type, id }) => {
             res = await axios.get(`tv/${type}`, { params })
         }
       } else {
-        res = await axios.get(`${category}/${id}/${type}`)
+        res = await axios.get(`${category}/${id}/${type}`, { params })
       }
       setMovies(res.results)
     }

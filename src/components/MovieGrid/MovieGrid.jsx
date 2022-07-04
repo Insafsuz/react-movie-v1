@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useParams } from 'react-router'
+import { useParams } from 'react-router-dom'
 
 import './MovieGrid.scss'
 import axios from '../../services/apiService'
@@ -64,6 +64,16 @@ const MovieGrid = ({ category }) => {
 
   return (
     <>
+      <div>
+        <form className='movie-search'>
+          {/* <input
+                type='text'
+                className='movie-search__input'
+                placeholder='Enter keyword'
+                onChange={e => setValue(e.target.value)}
+              /> */}
+        </form>
+      </div>
       <div className='movie-grid'>
         {movies.map((item, i) => (
           <MovieCard category={category} movie={item} key={i} />
@@ -71,7 +81,7 @@ const MovieGrid = ({ category }) => {
       </div>
       {page < totalPage ? (
         <div className='movie-grid__loadmore'>
-          <OutlineButton className='small' onClick={loadMore}>
+          <OutlineButton className='btn-small' onClick={loadMore}>
             Load more
           </OutlineButton>
         </div>

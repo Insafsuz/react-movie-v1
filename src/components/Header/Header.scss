@@ -11,6 +11,12 @@
   &.fixed {
     height: 75px;
     background-color: $body-bg;
+    @media (max-width: 767px) {
+      height: 65px;
+    }
+    @media (max-width: 424px) {
+      height: 55px;
+    }
   }
   @media (max-width: 1023px) {
     height: 100px;

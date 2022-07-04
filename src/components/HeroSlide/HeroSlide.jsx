@@ -50,10 +50,10 @@ const HeroSlideItem = ({ movie }) => {
         <div className='item-hero__info'>
           <h2 className='item-hero__title'>{movie.title}</h2>
           <p className='item-hero__overview'>{movie.overview}</p>
-          <div className='item-hero__btns'>
+          {/* <div className='item-hero__btns'>
             <Button>Watch now</Button>
             <OutlineButton>Watch trailer</OutlineButton>
-          </div>
+          </div> */}
         </div>
         <div className='item-hero__poster'>
           <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt='' />
