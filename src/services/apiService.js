@@ -7,8 +7,10 @@ const instance = axios.create({
   baseURL: 'https://api.themoviedb.org/3/',
   headers: {
     'Content-Type': 'application/json',
+    Authorization: `Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5N2QyYmU1MDI3OGVjMmJkNDg3NGE3MmY4MmU1OGI1OSIsIm5iZiI6MTcyMjkyNDU5OC40NzI0ODgsInN1YiI6IjY2YjBiMWNmZjJlMTAyYzMxOTNhMzJjNCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.txD86XSk0yra0ou25QT-FkLD_jW2RNe4vqzw1gVkJxw`,
   },
-  paramsSerializer: params => queryString.stringify({ ...params, api_key: API_KEY }),
+  paramsSerializer: params =>
+    queryString.stringify({ ...params, api_key: API_KEY }),
 })
 
 instance.interceptors.request.use(async config => config)
